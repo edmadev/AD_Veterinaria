@@ -12,5 +12,6 @@ public class Ejecuta {
     public static void main(String[] args) {
         Conexion c = new Conexion();
         c.conectar();
+        System.out.println("Javi marica");
     }
 }
