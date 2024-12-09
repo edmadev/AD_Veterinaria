@@ -55,7 +55,7 @@ public class DML {
         return filas;
     }
 
-    public boolean modificarLibro(String titulo, String autor, String genero, int año) {
+    public boolean actualizarLibro(String titulo, String autor, String genero, int año) {
         PreparedStatement ps = null;
         boolean actualizado = false;
         int filas = 0;
@@ -142,7 +142,7 @@ public class DML {
         return filas;
     }
 
-    public boolean modificarUsuario(String nombre, String email, String tipo, int telefono) {
+    public boolean actualizarUsuario(String nombre, String email, String tipo, int telefono) {
         PreparedStatement ps = null;
         boolean actualizado = false;
         int filas = 0;
@@ -228,7 +228,7 @@ public class DML {
         return filas;
     }
 
-    public boolean modificarEvento(String nombre, Date fecha, String descripcion) {
+    public boolean actualizarEvento(String nombre, Date fecha, String descripcion) {
         PreparedStatement ps = null;
         boolean actualizado = false;
         int filas = 0;
@@ -286,15 +286,16 @@ public class DML {
         return filas;
     }
 
-    public int registrarPrestamo(Date fecha, Date devolucion) {
+    public int registrarPrestamo(Prestamo prestamo) {
         PreparedStatement ps = null;
         int filas = 0;
         try {
-            String consulta = "INSERT INTO prestamos (fecha_prestamo,fecha_limite_devolucion) VALUES"
-                    + "(?,?)";
+            String consulta = "INSERT INTO prestamos (id_usuario,id_libro,fecha_prestamo,fecha_limite_devolucion) VALUES (?,?,?,?)";
             ps = conexion.prepareStatement(consulta);
-            ps.setDate(1, fecha);
-            ps.setDate(2, devolucion);
+            ps.setInt(1, prestamo.getIdLibro());
+            ps.setInt(2, prestamo.getIdUsuario());
+            ps.setDate(3, prestamo.getFechaPrestamo());
+            ps.setDate(4, prestamo.getFechaLimiteDevolucion());
             filas = ps.executeUpdate();
             System.out.println("NUMERO DE INSERCIONES: " + filas);
         } catch (SQLException ex) {
@@ -312,6 +313,39 @@ public class DML {
         return filas;
     }
 
+    public boolean actualizarPrestamo(Prestamo prestamo) {
+        PreparedStatement ps = null;
+        boolean actualizacionExitosa = false;
+        int filasActualizadas;
+        try {
+            String consulta = "UPDATE prestamos SET id_usuario = ?, id_libro = ?, fecha_prestamo = ?, fecha_limite_devolución = ? WHERE id_prestamo = ?";
+            ps = conexion.prepareStatement(consulta);
+            ps.setInt(1, prestamo.getIdUsuario());
+            ps.setInt(2, prestamo.getIdLibro());
+            ps.setDate(3, prestamo.getFechaPrestamo());
+            ps.setDate(4, prestamo.getFechaLimiteDevolucion());
+            filasActualizadas = ps.executeUpdate();
+            if(filasActualizadas>0){
+                System.out.println("Actualización exitosa");
+                actualizacionExitosa = true;
+            }else{
+                System.out.println("No se ha encontrado el prestamo de id: "+prestamo.getIdPrestamo());
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println("Error al intentar actualizar vacuna: "+ex.toString());
+        }finally{
+            if(ps!=null){
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    System.out.println("Error al cerrar PS: "+ex.toString());
+                }
+            }
+        }
+        return actualizacionExitosa;
+    }
+
     public int registrarMulta(int idPrestamo, double montoMulta) {
         PreparedStatement ps = null;
         int filasInsertadas = 0;
@@ -321,7 +355,7 @@ public class DML {
             ps.setInt(1, idPrestamo);
             ps.setDouble(2, montoMulta);
             filasInsertadas = ps.executeUpdate();
-            System.out.println("Numero de insercciones: "+filasInsertadas);
+            System.out.println("Numero de insercciones: " + filasInsertadas);
 
         } catch (SQLException ex) {
             System.err.println("Error al registrar multa: " + ex.toString());
@@ -336,6 +370,5 @@ public class DML {
         }
         return filasInsertadas;
     }
-    
-    
+
 }
