@@ -8,12 +8,12 @@ package com.mycompany.biblioteca.models;
  *
  * @author dam
  */
-public class Participaciones {
+public class Participacion {
     private int idParticipacion;
     private int idEvento;
     private int idUsuario;
 
-    public Participaciones(int idParticipacion, int idEvento, int idUsuario) {
+    public Participacion(int idParticipacion, int idEvento, int idUsuario) {
         this.idParticipacion = idParticipacion;
         this.idEvento = idEvento;
         this.idUsuario = idUsuario;

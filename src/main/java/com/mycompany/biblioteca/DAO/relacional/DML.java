@@ -6,6 +6,8 @@ package com.mycompany.biblioteca.DAO.relacional;
 
 import com.mycompany.biblioteca.models.Evento;
 import com.mycompany.biblioteca.models.Libro;
+import com.mycompany.biblioteca.models.Multa;
+import com.mycompany.biblioteca.models.Participacion;
 import com.mycompany.biblioteca.models.Prestamo;
 import com.mycompany.biblioteca.models.Usuario;
 import java.sql.Connection;
@@ -325,25 +327,48 @@ public class DML {
             ps.setDate(3, prestamo.getFechaPrestamo());
             ps.setDate(4, prestamo.getFechaLimiteDevolucion());
             filasActualizadas = ps.executeUpdate();
-            if(filasActualizadas>0){
+            if (filasActualizadas > 0) {
                 System.out.println("Actualización exitosa");
                 actualizacionExitosa = true;
-            }else{
-                System.out.println("No se ha encontrado el prestamo de id: "+prestamo.getIdPrestamo());
+            } else {
+                System.out.println("No se ha encontrado el prestamo de id: " + prestamo.getIdPrestamo());
             }
-            
+
         } catch (SQLException ex) {
-            System.out.println("Error al intentar actualizar vacuna: "+ex.toString());
-        }finally{
-            if(ps!=null){
+            System.err.println("Error al intentar actualizar vacuna: " + ex.toString());
+        } finally {
+            if (ps != null) {
                 try {
                     ps.close();
                 } catch (SQLException ex) {
-                    System.out.println("Error al cerrar PS: "+ex.toString());
+                    System.err.println("Error al cerrar PS: " + ex.toString());
                 }
             }
         }
         return actualizacionExitosa;
+    }
+
+    public int borrarPrestamo(int idPrestamo) {
+        PreparedStatement ps = null;
+        int filasAfectadas = 0;
+        try {
+            String consulta = "DELETE FROM prestamos WHERE id_prestamo= ?";
+            ps = conexion.prepareStatement(consulta);
+            ps.setInt(1, idPrestamo);
+            filasAfectadas = ps.executeUpdate();
+            System.out.println("Numero de filas afectadas: " + filasAfectadas);
+        } catch (SQLException ex) {
+            System.err.println("Error al modificar: " + ex.getMessage());
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    System.err.println("Error al cerrar PS: " + ex.getMessage());
+                }
+            }
+        }
+        return filasAfectadas;
     }
 
     public int registrarMulta(int idPrestamo, double montoMulta) {
@@ -371,4 +396,136 @@ public class DML {
         return filasInsertadas;
     }
 
+    public int actualizarMulta(Multa multa) {
+        PreparedStatement ps = null;
+        boolean actualizacionExitosa = false;
+        int filasAfectadas = 0;
+        String consulta = "UPDATE multas SET id_prestamo = ?,monto_multa = ? WHERE id_multa = ?";
+        try {
+            ps = conexion.prepareStatement(consulta);
+            ps.setInt(1, multa.getIdPrestamo());
+            ps.setDouble(2, multa.getMontoMulta());
+            ps.setInt(3, multa.getIdMulta());
+            filasAfectadas = ps.executeUpdate();
+            if (filasAfectadas > 0) {
+                System.out.println("Actualizacion exitosa");
+                actualizacionExitosa = true;
+            } else {
+                System.out.println("No se ha encontrado la multa con id: " + multa.getIdMulta());
+            }
+            System.out.println("Filas insertadas: " + filasAfectadas);
+        } catch (SQLException ex) {
+            System.err.println("Error al insertar multa: " + ex.toString());
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    System.err.println("Error al cerrar PS: " + ex.getMessage());
+                }
+            }
+        }
+        return filasAfectadas;
+    }
+
+    public int eliminarMulta(Multa multa) {
+        PreparedStatement ps = null;
+        int filasAfectadas = 0;
+        try {
+            String consulta = "DELETE FROM multas WHERE id_multa = ?";
+            ps = conexion.prepareStatement(consulta);
+            ps.setInt(1, multa.getIdMulta());
+            filasAfectadas = ps.executeUpdate();
+            System.out.println("Filas eliminadas: " + filasAfectadas);
+        } catch (SQLException ex) {
+            System.err.println("Error al elimnar fila de multa: " + ex.getMessage());
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    System.err.println("Error al cerrar ps: " + ex.getMessage());
+                }
+            }
+        }
+        return filasAfectadas;
+    }
+
+    public int registrarParticipacion(Participacion participacion) {
+        PreparedStatement ps = null;
+        int filasAfectadas = 0;
+        try {
+            String consulta = "INSERT INTO participaciones (id_evento, id_usuario) VALUES (?,?)";
+            ps = conexion.prepareStatement(consulta);
+            ps.setInt(1, participacion.getIdEvento());
+            ps.setInt(2, participacion.getIdUsuario());
+            filasAfectadas = ps.executeUpdate();
+            System.out.println("Numero de insercciones: " + filasAfectadas);
+        } catch (SQLException ex) {
+            System.err.println("Error al insertar participacion: " + ex.toString());
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    System.err.println("Error al cerrar ps: " + ex.getMessage());
+                }
+            }
+        }
+        return filasAfectadas;
+    }
+
+    public boolean actualizarParticipacion(Participacion participacion) {
+        PreparedStatement ps = null;
+        int filasAfectadas = 0;
+        boolean actualizacionExitosa = false;
+        try {
+            String consulta = "UPDATE particiapaciones SET id_evento = ?, id_usuario = ? WHERE id_participacion = ?";
+            ps = conexion.prepareStatement(consulta);
+            ps.setInt(1, participacion.getIdEvento());
+            ps.setInt(2, participacion.getIdUsuario());
+            ps.setInt(3, participacion.getIdParticipacion());
+            filasAfectadas = ps.executeUpdate();
+            if (filasAfectadas > 0) {
+                actualizacionExitosa = true;
+                System.out.println("Se ha actualizado participacion");
+            } else {
+                System.out.println("No se ha encontrado la participacion con id:" + participacion.getIdParticipacion());
+            }
+        } catch (SQLException ex) {
+            System.err.println("Error al actualizar participacion: " + ex.getMessage());
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    System.err.println("Error al cerrar ps: " + ex.getMessage());
+                }
+            }
+            return actualizacionExitosa;
+        }
+    }
+
+    public int borrarParticipacion(Participacion participacion) {
+        PreparedStatement ps = null;
+        int filasAfectadas = 0;
+        try {
+            String consulta = "DELETE FROM participaciones WHERE id_participacion = ?";
+            ps = conexion.prepareStatement(consulta);
+            ps.setInt(1, participacion.getIdParticipacion());
+            filasAfectadas = ps.executeUpdate();
+            System.out.println("Numero de filas borradas: "+filasAfectadas);
+        } catch (SQLException ex) {
+            System.err.println("Error al borrar participacion: "+ex.getMessage());
+        }finally{
+            if (ps!=null){
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    System.err.println("Error al cerrar ps: "+ex.getMessage());
+                }
+            }
+        }
+        return filasAfectadas;
+    }
 }
