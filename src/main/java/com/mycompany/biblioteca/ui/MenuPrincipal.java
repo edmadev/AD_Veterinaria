@@ -4,6 +4,9 @@
  */
 package com.mycompany.biblioteca.ui;
 
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author JHB
@@ -13,6 +16,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form MenuPrincipal
      */
+    VentanaLibros vI = new VentanaLibros();
+    VentanaUsuarios vU = new VentanaUsuarios();
+    VentanaPrestamos vP = new VentanaPrestamos();
+    VentanaEventos vE = new VentanaEventos();
+
     public MenuPrincipal() {
         initComponents();
     }
@@ -32,6 +40,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnPrestamos = new javax.swing.JButton();
         btnEventos = new javax.swing.JButton();
         btnConfiguracion = new javax.swing.JButton();
+        pnInsertarVentana = new javax.swing.JPanel();
+        btnMultas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,57 +49,127 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lblTitulo.setText("BIBLIOTECA");
 
         btnLibros.setText("Gestionar Libros");
+        btnLibros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLibrosActionPerformed(evt);
+            }
+        });
 
         btnUsuarios.setText("Gestionar Usuarios");
+        btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsuariosActionPerformed(evt);
+            }
+        });
 
         btnPrestamos.setText("Prestamos y devoluciones");
+        btnPrestamos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrestamosActionPerformed(evt);
+            }
+        });
 
         btnEventos.setText("Eventos");
+        btnEventos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEventosActionPerformed(evt);
+            }
+        });
 
         btnConfiguracion.setText("Configuracion");
+
+        pnInsertarVentana.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout pnInsertarVentanaLayout = new javax.swing.GroupLayout(pnInsertarVentana);
+        pnInsertarVentana.setLayout(pnInsertarVentanaLayout);
+        pnInsertarVentanaLayout.setHorizontalGroup(
+            pnInsertarVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        pnInsertarVentanaLayout.setVerticalGroup(
+            pnInsertarVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        btnMultas.setText("Multas");
+        btnMultas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMultasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(btnLibros)
-                        .addGap(65, 65, 65)
-                        .addComponent(btnUsuarios)
-                        .addGap(65, 65, 65)
-                        .addComponent(btnPrestamos))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addComponent(btnEventos)
-                        .addGap(108, 108, 108)
-                        .addComponent(btnConfiguracion))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addComponent(lblTitulo)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnPrestamos, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                    .addComponent(btnUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLibros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEventos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnConfiguracion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMultas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pnInsertarVentana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(518, Short.MAX_VALUE)
+                .addComponent(lblTitulo)
+                .addGap(401, 401, 401))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(109, 109, 109)
+                .addComponent(btnLibros)
+                .addGap(18, 18, 18)
+                .addComponent(btnUsuarios)
+                .addGap(18, 18, 18)
+                .addComponent(btnPrestamos)
+                .addGap(18, 18, 18)
+                .addComponent(btnEventos)
+                .addGap(18, 18, 18)
+                .addComponent(btnMultas)
+                .addGap(35, 35, 35)
+                .addComponent(btnConfiguracion)
+                .addContainerGap(207, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
                 .addComponent(lblTitulo)
-                .addGap(125, 125, 125)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLibros)
-                    .addComponent(btnUsuarios)
-                    .addComponent(btnPrestamos))
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEventos)
-                    .addComponent(btnConfiguracion))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pnInsertarVentana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEventosActionPerformed
+        establecerDimensionesPanelExterno(vE);
+        insertarVentana(vE);
+    }//GEN-LAST:event_btnEventosActionPerformed
+
+    private void btnLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLibrosActionPerformed
+        establecerDimensionesPanelExterno(vI);
+        insertarVentana(vI);
+
+    }//GEN-LAST:event_btnLibrosActionPerformed
+
+    private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
+        establecerDimensionesPanelExterno(vU);
+        insertarVentana(vU);
+    }//GEN-LAST:event_btnUsuariosActionPerformed
+
+    private void btnPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrestamosActionPerformed
+        establecerDimensionesPanelExterno(vP);
+        insertarVentana(vP);
+    }//GEN-LAST:event_btnPrestamosActionPerformed
+
+    private void btnMultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMultasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,12 +206,29 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
     }
 
+    public void insertarVentana(JPanel panel) {
+        panel.setSize(900, 480);
+        panel.setLocation(0, 0); //establecido en el eje (0,0)
+        pnInsertarVentana.removeAll();
+        pnInsertarVentana.add(panel, BorderLayout.CENTER);
+        pnInsertarVentana.revalidate();
+        pnInsertarVentana.repaint();
+    }
+
+    public void establecerDimensionesPanelExterno(JPanel panel) {
+        panel.setSize(900, 480);
+        panel.setLocation(0, 0);
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfiguracion;
     private javax.swing.JButton btnEventos;
     private javax.swing.JButton btnLibros;
+    private javax.swing.JButton btnMultas;
     private javax.swing.JButton btnPrestamos;
     private javax.swing.JButton btnUsuarios;
     private javax.swing.JLabel lblTitulo;
+    private javax.swing.JPanel pnInsertarVentana;
     // End of variables declaration//GEN-END:variables
 }
