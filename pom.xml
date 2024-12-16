@@ -11,22 +11,19 @@
         <maven.compiler.target>17</maven.compiler.target>
         <exec.mainClass>com.mycompany.biblioteca.Biblioteca</exec.mainClass>
     </properties>
-     <dependencies>
+    <dependencies>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.32</version>
         </dependency>
-
-<!-- https://mvnrepository.com/artifact/com.db4o/db4o-java5 -->
-<dependency>
-    <groupId>com.db4o</groupId>
-    <artifactId>db4o-java5</artifactId>
-    <version>6.4</version>
-</dependency>
-
-
-
+        <dependency>
+        <groupId>com.db4o</groupId>
+        <artifactId>db4o-all</artifactId>
+        <version>8.0.249</version>
+        <scope>system</scope>
+        <systemPath>C:\Users\dam\Desktop\OneDrive - IES El Lago\Documentos\NetBeansProjects\AD_ProyectoBiblioteca\libs\db4o-all-8.0.249.jar</systemPath>
+    </dependency>
     </dependencies>
     <name>AD_BibliotecaGarciaEdwinHerranJavier</name>
 </project>

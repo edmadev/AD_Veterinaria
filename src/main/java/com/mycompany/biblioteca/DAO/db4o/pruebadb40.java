@@ -4,11 +4,15 @@
  */
 package com.mycompany.biblioteca.DAO.db4o;
 
+import com.db4o.Db4o;
+import com.db4o.ObjectContainer;
+
 /**
  *
  * @author dam
  */
 public class pruebadb40 {
-    //ObjectContainer db = Db4o.openFile("prueba.db4o"); 
+    ObjectContainer db = Db4o.openFile("prueba.db4o"); 
+    
     
 }
