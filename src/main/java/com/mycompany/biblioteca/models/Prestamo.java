@@ -16,11 +16,16 @@ public class Prestamo {
     private int idLibro;
     private java.sql.Date fechaPrestamo;
     private java.sql.Date fechaLimiteDevolucion;
+    private double multa;
 
     public Prestamo(Date fechaPrestamo, Date fechaLimiteDevolucion) {
         this.fechaPrestamo = fechaPrestamo;
         this.fechaLimiteDevolucion = fechaLimiteDevolucion;
+        this.multa = 0;
     }
+
+    
+    
 
     public int getIdPrestamo() {
         return idPrestamo;
@@ -42,10 +47,22 @@ public class Prestamo {
         return fechaLimiteDevolucion;
     }
 
+    public double getMulta() {
+        return multa;
+    }
+
+    public void setMulta(double multa) {
+        this.multa = multa;
+    }
+
     @Override
     public String toString() {
-        return "Prestamo{" + "idPrestamo=" + idPrestamo + ", idUsuario=" + idUsuario + ", idLibro=" + idLibro + ", fechaPrestamo=" + fechaPrestamo + ", fechaLimiteDevolucion=" + fechaLimiteDevolucion + '}';
+        return "Prestamo{" + "idPrestamo=" + idPrestamo + ", idUsuario=" + idUsuario + ", idLibro=" + idLibro + ", fechaPrestamo=" + fechaPrestamo + ", fechaLimiteDevolucion=" + fechaLimiteDevolucion + ", multa=" + multa + '}';
     }
+    
+    
+
+    
     
     
     

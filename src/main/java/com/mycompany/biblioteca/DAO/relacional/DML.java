@@ -292,12 +292,13 @@ public class DML {
         PreparedStatement ps = null;
         int filas = 0;
         try {
-            String consulta = "INSERT INTO prestamos (id_usuario,id_libro,fecha_prestamo,fecha_limite_devolucion) VALUES (?,?,?,?)";
+            String consulta = "INSERT INTO prestamos (id_usuario,id_libro,fecha_prestamo,fecha_limite_devolucion,multa) VALUES (?,?,?,?,?)";
             ps = conexion.prepareStatement(consulta);
             ps.setInt(1, prestamo.getIdLibro());
             ps.setInt(2, prestamo.getIdUsuario());
             ps.setDate(3, prestamo.getFechaPrestamo());
             ps.setDate(4, prestamo.getFechaLimiteDevolucion());
+            ps.setDouble(5, prestamo.getMulta());
             filas = ps.executeUpdate();
             System.out.println("NUMERO DE INSERCIONES: " + filas);
         } catch (SQLException ex) {
@@ -320,12 +321,13 @@ public class DML {
         boolean actualizacionExitosa = false;
         int filasActualizadas;
         try {
-            String consulta = "UPDATE prestamos SET id_usuario = ?, id_libro = ?, fecha_prestamo = ?, fecha_limite_devolución = ? WHERE id_prestamo = ?";
+            String consulta = "UPDATE prestamos SET id_usuario = ?, id_libro = ?, fecha_prestamo = ?, fecha_limite_devolución = ?, multa = ? WHERE id_prestamo = ?";
             ps = conexion.prepareStatement(consulta);
             ps.setInt(1, prestamo.getIdUsuario());
             ps.setInt(2, prestamo.getIdLibro());
             ps.setDate(3, prestamo.getFechaPrestamo());
             ps.setDate(4, prestamo.getFechaLimiteDevolucion());
+            ps.setDouble(5, prestamo.getMulta());
             filasActualizadas = ps.executeUpdate();
             if (filasActualizadas > 0) {
                 System.out.println("Actualización exitosa");
@@ -348,6 +350,14 @@ public class DML {
         return actualizacionExitosa;
     }
 
+    /*public boolean actualizarMulta(Prestamo prestamo){
+        PreparedStatement ps = null;
+        boolean actualizacionExitosa = false;
+        int filasActualizadas;
+        try{
+            String consulta ="UPDATE prestamos set multa = ?"
+        }
+    }*/
     public int borrarPrestamo(int idPrestamo) {
         PreparedStatement ps = null;
         int filasAfectadas = 0;
