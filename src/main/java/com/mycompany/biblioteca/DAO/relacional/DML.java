@@ -92,6 +92,13 @@ public class DML {
         return actualizado;
     }
 
+    
+    
+    
+    
+    
+    
+    
     public int eliminarLibro(String titulo) {
         PreparedStatement ps = null;
         int filas = 0;
@@ -116,6 +123,9 @@ public class DML {
         return filas;
     }
 
+    
+    
+    
     public int registrarUsuario(String nombre, String email, String tipo, int telefono) {
         PreparedStatement ps = null;
         int filas = 0;
