@@ -14,5 +14,4 @@ import com.db4o.ObjectContainer;
 public class pruebadb40 {
     ObjectContainer db = Db4o.openFile("prueba.db4o"); 
     
-    
 }
