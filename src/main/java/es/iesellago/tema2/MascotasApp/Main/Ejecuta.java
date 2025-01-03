@@ -1,7 +1,7 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
-package es.iesellago.tema2.MascotasApp.Executer;
+package es.iesellago.tema2.MascotasApp.Main;
 
 import es.iesellago.tema2.MascotasApp.Controller.ConexionMySQL;
 import es.iesellago.tema2.MascotasApp.Controller.ConsultasDML;
