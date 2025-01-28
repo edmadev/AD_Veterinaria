@@ -18,6 +18,7 @@ public class VentanaLibros extends javax.swing.JPanel {
      */
     ventanaAñadirLibro vAñadir = new ventanaAñadirLibro();
     ventanaEliminarLibro vEliminar = new ventanaEliminarLibro();
+    ventanaModificarLibro vModificar = new ventanaModificarLibro();
     public VentanaLibros() {
         initComponents();
     }
@@ -47,6 +48,11 @@ public class VentanaLibros extends javax.swing.JPanel {
         });
 
         btnModificar.setText("Modificar");
+        btnModificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnModificarMouseClicked(evt);
+            }
+        });
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -111,6 +117,12 @@ public class VentanaLibros extends javax.swing.JPanel {
         DimensionesPanel(vEliminar);
         insertarVentana(vEliminar);
     }//GEN-LAST:event_btnEliminarMouseClicked
+
+    private void btnModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarMouseClicked
+        // TODO add your handling code here:
+        DimensionesPanel(vModificar);
+        insertarVentana(vModificar);
+    }//GEN-LAST:event_btnModificarMouseClicked
 
     public void insertarVentana(JPanel panel){
         panel.setSize(700,320);

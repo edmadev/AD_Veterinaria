@@ -10,14 +10,13 @@ import com.mycompany.biblioteca.DAO.relacional.DML;
  *
  * @author dam
  */
-public class ventanaModificarLibro extends javax.swing.JPanel {
+public class ventanaModificarUsuario extends javax.swing.JPanel {
 
     /**
-     * Creates new form ventanaModificarLibro
+     * Creates new form ventanaModificarUsuario
      */
     DML dml = new DML();
-    
-    public ventanaModificarLibro() {
+    public ventanaModificarUsuario() {
         initComponents();
     }
 
@@ -30,20 +29,31 @@ public class ventanaModificarLibro extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblTipo = new javax.swing.JLabel();
+        lblTfno = new javax.swing.JLabel();
         tfBuscar = new javax.swing.JTextField();
+        btnModificar = new javax.swing.JButton();
         lblBuscar = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JButton();
-        tfTitulo = new javax.swing.JTextField();
-        tfAutor = new javax.swing.JTextField();
-        tfGenero = new javax.swing.JTextField();
-        spnAño = new javax.swing.JSpinner();
-        lblTitulo = new javax.swing.JLabel();
-        lblAutor = new javax.swing.JLabel();
-        lblGenero = new javax.swing.JLabel();
-        lblAño = new javax.swing.JLabel();
-        btnModificar = new javax.swing.JButton();
+        tfNombre = new javax.swing.JTextField();
+        tfEmail = new javax.swing.JTextField();
+        tfTipo = new javax.swing.JTextField();
+        spnTfno = new javax.swing.JSpinner();
+        lblNombre = new javax.swing.JLabel();
+        lblEmail = new javax.swing.JLabel();
 
-        lblBuscar.setText("Buscar Titulo");
+        lblTipo.setText("Tipo de Usuario");
+
+        lblTfno.setText("Teléfono");
+
+        btnModificar.setText("Modificar");
+        btnModificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnModificarMouseClicked(evt);
+            }
+        });
+
+        lblBuscar.setText("Buscar Usuario");
 
         btnBuscar.setText("Buscar");
         btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -52,20 +62,9 @@ public class ventanaModificarLibro extends javax.swing.JPanel {
             }
         });
 
-        lblTitulo.setText("Titulo");
+        lblNombre.setText("Nombre");
 
-        lblAutor.setText("Autor");
-
-        lblGenero.setText("Genero");
-
-        lblAño.setText("Año");
-
-        btnModificar.setText("Modificar");
-        btnModificar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnModificarMouseClicked(evt);
-            }
-        });
+        lblEmail.setText("Email");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -82,16 +81,16 @@ public class ventanaModificarLibro extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(181, 181, 181)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTitulo)
-                            .addComponent(tfGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblGenero))
+                            .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNombre)
+                            .addComponent(tfTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTipo))
                         .addGap(57, 57, 57)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(spnAño, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAutor)
-                            .addComponent(tfAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAño)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblEmail)
+                            .addComponent(tfEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(lblTfno)
+                            .addComponent(spnTfno)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(276, 276, 276)
                         .addComponent(btnModificar)))
@@ -108,20 +107,20 @@ public class ventanaModificarLibro extends javax.swing.JPanel {
                 .addComponent(btnBuscar)
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTitulo)
-                    .addComponent(lblAutor))
+                    .addComponent(lblNombre)
+                    .addComponent(lblEmail))
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblGenero)
-                    .addComponent(lblAño))
+                    .addComponent(lblTipo)
+                    .addComponent(lblTfno))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(spnAño, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spnTfno, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnModificar)
                 .addContainerGap(21, Short.MAX_VALUE))
@@ -130,28 +129,28 @@ public class ventanaModificarLibro extends javax.swing.JPanel {
 
     private void btnModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarMouseClicked
         // TODO add your handling code here:
-        int año = (int)spnAño.getValue();
-        dml.actualizarLibro(tfTitulo.getText(), tfAutor.getText(), tfGenero.getText(), año);
+        int tfno = (int)spnTfno.getValue();
+        dml.actualizarUsuario(tfNombre.getText(), tfEmail.getText(), tfTipo.getText(), tfno);
     }//GEN-LAST:event_btnModificarMouseClicked
 
     private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
         // TODO add your handling code here:
-        //Buscar datos libro
+        //Buscar datos Usuario
     }//GEN-LAST:event_btnBuscarMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnModificar;
-    private javax.swing.JLabel lblAutor;
-    private javax.swing.JLabel lblAño;
     private javax.swing.JLabel lblBuscar;
-    private javax.swing.JLabel lblGenero;
-    private javax.swing.JLabel lblTitulo;
-    private javax.swing.JSpinner spnAño;
-    private javax.swing.JTextField tfAutor;
+    private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblTfno;
+    private javax.swing.JLabel lblTipo;
+    private javax.swing.JSpinner spnTfno;
     private javax.swing.JTextField tfBuscar;
-    private javax.swing.JTextField tfGenero;
-    private javax.swing.JTextField tfTitulo;
+    private javax.swing.JTextField tfEmail;
+    private javax.swing.JTextField tfNombre;
+    private javax.swing.JTextField tfTipo;
     // End of variables declaration//GEN-END:variables
 }

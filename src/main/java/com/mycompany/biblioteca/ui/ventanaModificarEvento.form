@@ -16,12 +16,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblBuscar" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblBuscar" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="tfBuscar" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                           <Component id="btnBuscar" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -29,22 +29,17 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="181" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="tfTitulo" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                          <Component id="lblTitulo" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfGenero" min="-2" pref="100" max="-2" attributes="0"/>
-                          <Component id="lblGenero" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfNombre" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="lblNombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfGenero" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="lblDescripcion" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="spnAño" min="-2" pref="80" max="-2" attributes="0"/>
-                          <Component id="lblAutor" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfAutor" min="-2" pref="100" max="-2" attributes="0"/>
-                          <Component id="lblAño" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblFecha" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfFecha" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="btnModificar" min="-2" max="-2" attributes="0"/>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="276" max="-2" attributes="0"/>
-                      <Component id="btnModificar" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="262" max="32767" attributes="0"/>
@@ -53,7 +48,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Component id="lblBuscar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -62,37 +57,45 @@
               <Component id="btnBuscar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblTitulo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblAutor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblFecha" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="tfTitulo" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="tfAutor" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="tfNombre" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="tfFecha" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblGenero" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblAño" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="lblDescripcion" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="tfGenero" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="spnAño" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="btnModificar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnModificar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="21" max="32767" attributes="0"/>
+              <EmptySpace pref="62" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
+    <Component class="javax.swing.JLabel" name="lblDescripcion">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Descripcion"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JTextField" name="tfBuscar">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnModificar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Modificar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnModificarMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblBuscar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Buscar Titulo"/>
+        <Property name="text" type="java.lang.String" value="Buscar Evento"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnBuscar">
@@ -103,41 +106,21 @@
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnBuscarMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfTitulo">
+    <Component class="javax.swing.JTextField" name="tfNombre">
     </Component>
-    <Component class="javax.swing.JTextField" name="tfAutor">
+    <Component class="javax.swing.JTextField" name="tfFecha">
     </Component>
     <Component class="javax.swing.JTextField" name="tfGenero">
     </Component>
-    <Component class="javax.swing.JSpinner" name="spnA&#xf1;o">
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblTitulo">
+    <Component class="javax.swing.JLabel" name="lblNombre">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Titulo"/>
+        <Property name="text" type="java.lang.String" value="Nombre"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblAutor">
+    <Component class="javax.swing.JLabel" name="lblFecha">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Autor"/>
+        <Property name="text" type="java.lang.String" value="Fecha"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblGenero">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Genero"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblA&#xf1;o">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="A&#xf1;o"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnModificar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Modificar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnModificarMouseClicked"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

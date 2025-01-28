@@ -5,19 +5,20 @@
 package com.mycompany.biblioteca.ui;
 
 import com.mycompany.biblioteca.DAO.relacional.DML;
+import java.sql.Date;
+import java.time.LocalDate;
 
 /**
  *
  * @author dam
  */
-public class ventanaModificarLibro extends javax.swing.JPanel {
+public class ventanaModificarEvento extends javax.swing.JPanel {
 
     /**
-     * Creates new form ventanaModificarLibro
+     * Creates new form ventanaModificarEvento
      */
     DML dml = new DML();
-    
-    public ventanaModificarLibro() {
+    public ventanaModificarEvento() {
         initComponents();
     }
 
@@ -30,20 +31,27 @@ public class ventanaModificarLibro extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblDescripcion = new javax.swing.JLabel();
         tfBuscar = new javax.swing.JTextField();
+        btnModificar = new javax.swing.JButton();
         lblBuscar = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JButton();
-        tfTitulo = new javax.swing.JTextField();
-        tfAutor = new javax.swing.JTextField();
+        tfNombre = new javax.swing.JTextField();
+        tfFecha = new javax.swing.JTextField();
         tfGenero = new javax.swing.JTextField();
-        spnAño = new javax.swing.JSpinner();
-        lblTitulo = new javax.swing.JLabel();
-        lblAutor = new javax.swing.JLabel();
-        lblGenero = new javax.swing.JLabel();
-        lblAño = new javax.swing.JLabel();
-        btnModificar = new javax.swing.JButton();
+        lblNombre = new javax.swing.JLabel();
+        lblFecha = new javax.swing.JLabel();
 
-        lblBuscar.setText("Buscar Titulo");
+        lblDescripcion.setText("Descripcion");
+
+        btnModificar.setText("Modificar");
+        btnModificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnModificarMouseClicked(evt);
+            }
+        });
+
+        lblBuscar.setText("Buscar Evento");
 
         btnBuscar.setText("Buscar");
         btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -52,20 +60,9 @@ public class ventanaModificarLibro extends javax.swing.JPanel {
             }
         });
 
-        lblTitulo.setText("Titulo");
+        lblNombre.setText("Nombre");
 
-        lblAutor.setText("Autor");
-
-        lblGenero.setText("Genero");
-
-        lblAño.setText("Año");
-
-        btnModificar.setText("Modificar");
-        btnModificar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnModificarMouseClicked(evt);
-            }
-        });
+        lblFecha.setText("Fecha");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -82,19 +79,15 @@ public class ventanaModificarLibro extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(181, 181, 181)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTitulo)
+                            .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNombre)
                             .addComponent(tfGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblGenero))
+                            .addComponent(lblDescripcion))
                         .addGap(57, 57, 57)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(spnAño, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAutor)
-                            .addComponent(tfAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAño)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(276, 276, 276)
-                        .addComponent(btnModificar)))
+                            .addComponent(lblFecha)
+                            .addComponent(tfFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnModificar))))
                 .addContainerGap(262, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -108,50 +101,45 @@ public class ventanaModificarLibro extends javax.swing.JPanel {
                 .addComponent(btnBuscar)
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTitulo)
-                    .addComponent(lblAutor))
+                    .addComponent(lblNombre)
+                    .addComponent(lblFecha))
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblGenero)
-                    .addComponent(lblAño))
+                .addComponent(lblDescripcion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(spnAño, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnModificar)
-                .addContainerGap(21, Short.MAX_VALUE))
+                    .addComponent(btnModificar))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarMouseClicked
         // TODO add your handling code here:
-        int año = (int)spnAño.getValue();
-        dml.actualizarLibro(tfTitulo.getText(), tfAutor.getText(), tfGenero.getText(), año);
+        LocalDate lDate = LocalDate.parse(tfFecha.getText());
+        Date fecha = Date.valueOf(lDate);
+        dml.actualizarEvento(tfNombre.getText(), fecha, tfGenero.getText());
     }//GEN-LAST:event_btnModificarMouseClicked
 
     private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
         // TODO add your handling code here:
-        //Buscar datos libro
+        //Buscar datos Evento
     }//GEN-LAST:event_btnBuscarMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnModificar;
-    private javax.swing.JLabel lblAutor;
-    private javax.swing.JLabel lblAño;
     private javax.swing.JLabel lblBuscar;
-    private javax.swing.JLabel lblGenero;
-    private javax.swing.JLabel lblTitulo;
-    private javax.swing.JSpinner spnAño;
-    private javax.swing.JTextField tfAutor;
+    private javax.swing.JLabel lblDescripcion;
+    private javax.swing.JLabel lblFecha;
+    private javax.swing.JLabel lblNombre;
     private javax.swing.JTextField tfBuscar;
+    private javax.swing.JTextField tfFecha;
     private javax.swing.JTextField tfGenero;
-    private javax.swing.JTextField tfTitulo;
+    private javax.swing.JTextField tfNombre;
     // End of variables declaration//GEN-END:variables
 }
