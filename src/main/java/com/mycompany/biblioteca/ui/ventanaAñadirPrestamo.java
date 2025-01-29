@@ -4,6 +4,8 @@
  */
 package com.mycompany.biblioteca.ui;
 
+import com.mycompany.biblioteca.DAO.relacional.DML;
+
 /**
  *
  * @author dam
@@ -13,6 +15,7 @@ public class ventanaAñadirPrestamo extends javax.swing.JPanel {
     /**
      * Creates new form ventanaAñadirPrestamo
      */
+    DML dml = new DML();
     public ventanaAñadirPrestamo() {
         initComponents();
     }
@@ -26,19 +29,99 @@ public class ventanaAñadirPrestamo extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tfNombre = new javax.swing.JTextField();
+        tfUsuario = new javax.swing.JTextField();
+        tfFechaPrestamo = new javax.swing.JTextField();
+        lblNombre = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
+        lblFechaPrestamo = new javax.swing.JLabel();
+        lblFechaDevolucion = new javax.swing.JLabel();
+        btnAceptar = new javax.swing.JButton();
+        tfFechaDevolucion = new javax.swing.JTextField();
+
+        lblNombre.setText("Nombre del libro");
+
+        lblUsuario.setText("Usuario");
+
+        lblFechaPrestamo.setText("Fecha de prestamo");
+
+        lblFechaDevolucion.setText("Fecha de devolucion");
+
+        btnAceptar.setText("Añadir");
+        btnAceptar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAceptarMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tfFechaPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblFechaPrestamo)
+                    .addComponent(lblNombre)
+                    .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblFechaDevolucion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tfUsuario)
+                    .addComponent(lblUsuario)
+                    .addComponent(tfFechaDevolucion))
+                .addGap(162, 162, 162))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(295, 295, 295)
+                .addComponent(btnAceptar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombre)
+                    .addComponent(lblUsuario))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFechaPrestamo)
+                    .addComponent(lblFechaDevolucion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfFechaPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfFechaDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
+                .addComponent(btnAceptar)
+                .addContainerGap(63, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAceptarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAceptarMouseClicked
+        // TODO add your handling code here:
+        String libro = tfNombre.getText();
+        String usuario = tfUsuario.getText();
+        //Cosa de fechas, mirar otras clases para comparar
+
+        int numero =(int) spnFecha.getValue();
+        dml.registrarUsuario(titulo, autor, genero,numero);
+    }//GEN-LAST:event_btnAceptarMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAceptar;
+    private javax.swing.JLabel lblFechaDevolucion;
+    private javax.swing.JLabel lblFechaPrestamo;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblUsuario;
+    private javax.swing.JTextField tfFechaDevolucion;
+    private javax.swing.JTextField tfFechaPrestamo;
+    private javax.swing.JTextField tfNombre;
+    private javax.swing.JTextField tfUsuario;
     // End of variables declaration//GEN-END:variables
 }
