@@ -16,27 +16,30 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="tfFechaPrestamo" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                  <Component id="lblFechaPrestamo" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblNombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfNombre" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="tfFechaPrestamo" alignment="0" pref="120" max="32767" attributes="0"/>
+                          <Component id="lblFechaPrestamo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="spnLibro" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="295" max="-2" attributes="0"/>
+                      <Component id="btnAceptar" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="169" max="32767" attributes="0"/>
+              <EmptySpace pref="62" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="lblFechaDevolucion" alignment="0" max="32767" attributes="0"/>
-                  <Component id="tfUsuario" alignment="0" max="32767" attributes="0"/>
                   <Component id="lblUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="tfFechaDevolucion" max="32767" attributes="0"/>
+                  <Component id="spnUsuario" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="295" max="-2" attributes="0"/>
-              <Component id="btnAceptar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -50,10 +53,10 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="tfNombre" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="tfUsuario" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="spnLibro" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="spnUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblFechaPrestamo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblFechaDevolucion" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -71,20 +74,16 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="tfNombre">
-    </Component>
-    <Component class="javax.swing.JTextField" name="tfUsuario">
-    </Component>
     <Component class="javax.swing.JTextField" name="tfFechaPrestamo">
     </Component>
     <Component class="javax.swing.JLabel" name="lblNombre">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre del libro"/>
+        <Property name="text" type="java.lang.String" value="Id libro"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblUsuario">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Usuario"/>
+        <Property name="text" type="java.lang.String" value="Id usuario"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblFechaPrestamo">
@@ -106,6 +105,20 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="tfFechaDevolucion">
+    </Component>
+    <Component class="javax.swing.JSpinner" name="spnLibro">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="spnUsuario">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        </Property>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

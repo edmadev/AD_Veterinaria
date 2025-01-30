@@ -302,7 +302,36 @@ public class DML {
         return filas;
     }
 
-    public int registrarPrestamo(Prestamo prestamo) {
+    public int registrarPrestamo(int usuario,int libro, Date Fprestamo, Date Fdevolucion,double multa) {
+        PreparedStatement ps = null;
+        int filas = 0;
+        /*No tengo del todo claro si la multa la metes manualmente, haces un metodo para calcularla
+        o tiene que ser una clase a parte*/
+        try {
+            String consulta = "INSERT INTO prestamos (id_usuario,id_libro,fecha_prestamo,fecha_limite_devolucion,multa) VALUES (?,?,?,?,?)";
+            ps = conexion.prepareStatement(consulta);
+            ps.setInt(1,usuario);
+            ps.setInt(2, libro);
+            ps.setDate(3,Fprestamo);
+            ps.setDate(4, Fdevolucion);
+            ps.setDouble(5, multa);
+            filas = ps.executeUpdate();
+            System.out.println("NUMERO DE INSERCIONES: " + filas);
+        } catch (SQLException ex) {
+            System.err.println("ERROR AL INSERTAR: " + ex.toString());
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                    System.out.println("CONEXION FINALIZADA");
+                } catch (SQLException e) {
+                    System.err.println("ERROR AL CERRAR CONEXION: " + e.toString());
+                }
+            }
+        }
+        return filas;
+    }
+    /*public int registrarPrestamo(Prestamo prestamo) {
         PreparedStatement ps = null;
         int filas = 0;
         try {
@@ -328,9 +357,42 @@ public class DML {
             }
         }
         return filas;
-    }
+    }*/
 
-    public boolean actualizarPrestamo(Prestamo prestamo) {
+    public boolean actualizarPrestamo(int idPrestamo,int usuario,int libro, Date Fprestamo, Date Fdevolucion) {
+        
+        PreparedStatement ps = null;
+        boolean actualizacionExitosa = false;
+        int filasActualizadas;
+        try {
+            String consulta = "UPDATE prestamos SET id_usuario = ?, id_libro = ?, fecha_prestamo = ?, fecha_limite_devolución = ?, multa = ? WHERE id_prestamo = ?";
+            ps = conexion.prepareStatement(consulta);
+            ps.setInt(1, usuario);
+            ps.setInt(2, libro);
+            ps.setDate(3, Fprestamo);
+            ps.setDate(4, Fdevolucion);
+            filasActualizadas = ps.executeUpdate();
+            if (filasActualizadas > 0) {
+                System.out.println("Actualización exitosa");
+                actualizacionExitosa = true;
+            } else {
+                System.out.println("No se ha encontrado el prestamo de id: " + idPrestamo);
+            }
+
+        } catch (SQLException ex) {
+            System.err.println("Error al intentar actualizar vacuna: " + ex.toString());
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    System.err.println("Error al cerrar PS: " + ex.toString());
+                }
+            }
+        }
+        return actualizacionExitosa;
+    }
+    /*public boolean actualizarPrestamo(Prestamo prestamo) {
         PreparedStatement ps = null;
         boolean actualizacionExitosa = false;
         int filasActualizadas;
@@ -362,7 +424,7 @@ public class DML {
             }
         }
         return actualizacionExitosa;
-    }
+    }*/
 
     /*public boolean actualizarMulta(Prestamo prestamo){
         PreparedStatement ps = null;

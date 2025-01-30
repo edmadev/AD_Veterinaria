@@ -27,6 +27,12 @@
             <artifactId>jcalendar</artifactId>
             <version>1.4</version>
         </dependency>
+        <dependency>
+            <groupId>ObjectDB</groupId>
+            <artifactId>ObjectDB</artifactId>
+            <version>2.9.2</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
     <name>AD_BibliotecaGarciaEdwinHerranJavier</name>
 </project>
