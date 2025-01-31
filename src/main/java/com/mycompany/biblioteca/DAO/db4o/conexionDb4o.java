@@ -16,6 +16,9 @@ public class conexionDb4o {
     private static final String DB = "biblioteca";
     public static  ObjectContainer db;
     
+    public static ObjectContainer getObjectContainer(){
+        return db;
+    }
     public static ObjectContainer abrirConexionDb40(){
         if(db == null){
             db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), DB);
