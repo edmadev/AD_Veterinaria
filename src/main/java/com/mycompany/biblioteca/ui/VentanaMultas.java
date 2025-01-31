@@ -18,7 +18,7 @@ public class VentanaMultas extends javax.swing.JPanel {
      */
     ventanaAñadirMultas vAñadir = new ventanaAñadirMultas();
     ventanaEliminarMultas vEliminar = new ventanaEliminarMultas();
-    ventanaModificarMultas vModificar = new ventanaModificarMultas();
+    //ventanaModificarMultas vModificar = new ventanaModificarMultas();
     public VentanaMultas() {
         initComponents();
     }
@@ -114,8 +114,8 @@ public class VentanaMultas extends javax.swing.JPanel {
 
     private void btnModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarMouseClicked
         // TODO add your handling code here:
-        DimensionesPanel(vModificar);
-        insertarVentana(vModificar);
+//        DimensionesPanel(vModificar);
+//        insertarVentana(vModificar);
     }//GEN-LAST:event_btnModificarMouseClicked
 
     private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked

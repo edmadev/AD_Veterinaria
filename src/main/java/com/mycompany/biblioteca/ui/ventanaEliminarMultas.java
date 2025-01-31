@@ -76,7 +76,7 @@ public class ventanaEliminarMultas extends javax.swing.JPanel {
     private void btnBorrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBorrarMouseClicked
         // TODO add your handling code here:
         int multa = (int)spnId.getValue();
-        dml.eliminarMulta(multa);
+       // dml.eliminarMulta(multa);
     }//GEN-LAST:event_btnBorrarMouseClicked
 
 
