@@ -4,6 +4,7 @@
  */
 package com.mycompany.biblioteca.main;
 
+import com.mycompany.biblioteca.DAO.mongoDB.ConexionMongoDB;
 import com.mycompany.biblioteca.DAO.relacional.Conexion;
 import com.mycompany.biblioteca.ui.MenuPrincipal;
 
@@ -13,8 +14,15 @@ import com.mycompany.biblioteca.ui.MenuPrincipal;
  */
 public class Ejecuta {
     public static void main(String[] args) {
+        //conexion JDBC
         Conexion c = new Conexion();
         c.conectar();
+        
+        //conexion MongoDB
+          ConexionMongoDB conn = new ConexionMongoDB();
+        conn.conectarMongoDB();
+        conn.cerrarConexionMongoDB();
+        
         MenuPrincipal m = new MenuPrincipal();
         m.setVisible(true);
         
