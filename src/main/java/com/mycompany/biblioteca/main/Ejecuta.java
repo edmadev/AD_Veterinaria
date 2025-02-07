@@ -4,7 +4,7 @@
  */
 package com.mycompany.biblioteca.main;
 
-import com.mycompany.biblioteca.DAO.mongoDB.ConexionMongoDB;
+import com.mycompany.biblioteca.DAO.noRelacional.ConexionMongoDB;
 import com.mycompany.biblioteca.DAO.relacional.Conexion;
 import com.mycompany.biblioteca.ui.MenuPrincipal;
 
